@@ -1,0 +1,21 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta  charset="UTF-8" />
+<title>prima pagina</title>
+</head>
+	<body>
+		<h1> hai inserito</h1>
+		Nome <span th:text="${autore.nome}"></span><br/>
+		Cognome <span th:text="${autore.cognome}"></span><br/>
+		Nazionalità: <span th:text="${autore.nazionalita}"></span><br/>
+		
+		
+		<form action="#" th:action="@{/tornaApaginaInizialeAmministratore}"  method="post">
+			
+			<input type="submit" name="submit" value="torna a pagina iniziale"> </input>
+			 
+		</form>
+		
+	</body>
+</html>

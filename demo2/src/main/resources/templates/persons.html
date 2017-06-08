@@ -1,0 +1,19 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+	<body>
+	<table>
+		<tr th:each="person, IterStat : ${persons}" >
+		
+		<td>	<span th:text="${person.firstName}"></span><br/> </td>
+		 <td>   <span th:text="${person.lastName}"></span><br/></td>
+		 <td>   <span th:text="${person.age}"></span><br/></td>
+		
+		
+		</tr>
+	</table>
+	</body>
+</html>

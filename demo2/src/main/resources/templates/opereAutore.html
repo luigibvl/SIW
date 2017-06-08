@@ -1,0 +1,35 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>lista opere</title>
+</head>
+	<body>
+
+		<div th:each="opera, IterStat : ${opere}" >
+		
+		<td>	<span th:text="${opera.titolo}"></span><br/> </td>
+		 <td>   <span th:text="${opera.anno}"></span><br/></td>
+		 <td>   <span th:text="${opera.tecnica}"></span><br/></td>
+		  <td>   <span th:text="${opera.dimensioni}"></span><br/></td>
+		 
+		 
+		
+		
+
+		 <form action="#" th:action="@{/eliminaOpera}" method="post">
+			<input type="hidden" name="idOpera" th:value="${opera.id}"/>
+			<input type="hidden" name="idAutore" th:value="${opera.autore.id}"/>
+			<input type="submit" name="submit" value="elimina"> </input>
+			
+		</form>
+		
+		
+		 
+		 
+		
+		</div>
+		
+	
+	</body>
+</html>

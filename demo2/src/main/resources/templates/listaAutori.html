@@ -1,0 +1,45 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+	<body>
+
+		<div th:each="autore, IterStat : ${autori}" >
+		
+		<td>	<span th:text="${autore.nome}"></span><br/> </td>
+		 <td>   <span th:text="${autore.cognome}"></span><br/></td>
+		 <td>   <span th:text="${autore.nazionalita}"></span><br/></td>
+		 
+		 
+		
+		 <form action="#" th:action="@{/inserimentoDiUnOpera}" method="post">
+			<input type="hidden" name="idAutore" th:value="${autore.id}"/>
+			<input type="submit" name="submit" value="aggiungi opera"> </input>
+			
+		</form>
+	
+		
+		
+
+		 <form action="#" th:action="@{/eliminaAutore}" method="post">
+			<input type="hidden" name="idAutore" th:value="${autore.id}"/>
+			<input type="submit" name="submit" value="elimina"> </input>
+			
+		</form>
+		
+		 <form action="#" th:action="@{/listaOpereAutore}" method="post">
+			<input type="hidden" name="idAutore" th:value="${autore.id}"/>
+			<input type="submit" name="submit" value="listaOpere"> </input>
+			
+		</form>
+	
+		 
+		 
+		
+		</div>
+		
+	
+	</body>
+</html>

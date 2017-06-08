@@ -1,0 +1,21 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>form</title>
+</head>
+	<body>
+		<h1>inserisci dati</h1>
+		
+		<form action="#" th:action="@{/processaOpera}" th:object="${opera}" method="post">
+			<p>Titolo: <input type="text" th:field="*{titolo}" /></p>
+        	<p>Anno: <input type="text" th:field="*{anno}" /></p>
+			<p>Tecnica:<input type="text" th:field="*{tecnica}"/></p>
+			<p>Dimensione:<input type="text" th:field="*{dimensioni}"/></p>
+			
+			<input type="hidden" name="idAutore" th:value="${idAutore}"/>
+			<input type="submit" name="submit" value="invia"> </input>
+			 <input type="reset" value="Reset" ></input>
+		</form>
+	</body>
+</html>
