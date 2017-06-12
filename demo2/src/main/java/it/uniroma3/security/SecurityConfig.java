@@ -10,37 +10,63 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+
+
 import javax.sql.DataSource;
+
+
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
  
+	
     @Autowired
     private DataSource dataSource;
  
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		auth.jdbcAuthentication().dataSource(dataSource)
+//		auth.jdbcAuthentication().dataSource(dataSource)
+//		
+//		.passwordEncoder(new BCryptPasswordEncoder())    
+//		.usersByUsernameQuery("SELECT username,password,1 FROM users where username=?")
+//		.authoritiesByUsernameQuery("SELECT username,authority FROM authorities where username=?");
 		
-		.passwordEncoder(new BCryptPasswordEncoder())
-		.usersByUsernameQuery("SELECT username,password,1 FROM users where username=?")
-		.authoritiesByUsernameQuery("SELECT username,authority FROM authorities where username=?");
+		
+		auth.inMemoryAuthentication().withUser("pier")
+		.password("pier").roles("USER");
+		
+		
 	}
  
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http
-        .authorizeRequests()
-            .anyRequest().authenticated()
-            .and()
-        .formLogin()
-            .loginPage("/login")
-            .permitAll()
-            .and()
-        .logout()
-           .permitAll();
+//        http
+//        .authorizeRequests()
+//            .anyRequest().authenticated()
+//            .and()
+//        .formLogin()
+//            .loginPage("/login")
+//            .permitAll()
+//            .and()
+//        .logout()
+//           .permitAll();
+    	
+    	
+    	
+    	http.antMatcher("/**").authorizeRequests().anyRequest().hasRole("USER")
+		.and().formLogin().loginPage("/login")
+		.failureUrl("/login?error=1").loginProcessingUrl("/login")
+		.permitAll().and().logout()
+		.logoutSuccessUrl("/paginaInizialeAmministratore.html");
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     }
 }

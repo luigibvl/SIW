@@ -3,12 +3,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>form</title>
+
+
+
+
 </head>
 	<body>
 		<h1>inserisci dati</h1>
 		
 		<form action="#" th:action="@{/processaAutore}" th:object="${autore}" method="post">
-			<p>Nome: <input type="text" th:field="*{nome}" /></p>
+			<div>
+			  	Nome:  
+				<span><input type="text" th:field="*{nome}" /> </span>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Error</span>
+			
+			
+			
+			
+			</div>
         	<p>Cognome: <input type="text" th:field="*{cognome}" /></p>
 			<p>nazionalita:<input type="text" th:field="*{nazionalita}"/></p>
 			<p>Data Nascita:<input type="text" th:field="*{dataNascita}"/></p>
