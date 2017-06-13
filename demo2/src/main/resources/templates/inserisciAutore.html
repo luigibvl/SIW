@@ -2,31 +2,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>form</title>
-
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link href="cosmo.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"/>
+<style>
+body {font-family: "Raleway", Arial, sans-serif;
+text-align: center;}
+.w3-row img {margin-bottom: -8px}
+</style>
+<title>Inserimento Dati</title>
 
 </head>
 	<body>
-		<h1>inserisci dati</h1>
+	<header class="w3-container w3-xlarge w3-padding-24">
+
+  </header>
+
+		<h1>Inserimento Dati</h1>
 		
-		<form action="#" th:action="@{/processaAutore}" th:object="${autore}" method="post">
+		<form action="#" class="w3-container w3-card-4 w3-padding-16 w3-white" th:action="@{/processaAutore}" th:object="${autore}" method="post">
 			<div>
 			  	Nome:  
-				<span><input type="text" th:field="*{nome}" /> </span>
+				<span><input class ="w3-input" type="text" th:field="*{nome}" /> </span>
 				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Error</span>
 			
-			
-			
-			
 			</div>
-        	<p>Cognome: <input type="text" th:field="*{cognome}" /></p>
-			<p>nazionalita:<input type="text" th:field="*{nazionalita}"/></p>
-			<p>Data Nascita:<input type="text" th:field="*{dataNascita}"/></p>
-			<p>Data Morte:<input type="text" th:field="*{dataMorte}"/></p>
-			<input type="submit" name="submit" value="invia"> </input>
-			 <input type="reset" value="Reset" ></input>
+        	<p>Cognome: <input class ="w3-input" type="text" th:field="*{cognome}" /></p>
+			<p>nazionalita:<input class ="w3-input" type="text" th:field="*{nazionalita}"/></p>
+			<p>Data Nascita:<input class ="w3-input" type="text" th:field="*{dataNascita}"/></p>
+			<p>Data Morte:<input class ="w3-input" type="text" th:field="*{dataMorte}"/></p>
+			<input type="submit" class="w3-button w3-right w3-theme" name="submit" value="invia"/>
+			 <input type="reset" class="w3-button w3-right w3-theme" value="Reset" ></input>
 		</form>
+  <div class="w3-row"></div>
+    <div class="w3-col m53"></div>
+		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
+
+
 	</body>
 </html>

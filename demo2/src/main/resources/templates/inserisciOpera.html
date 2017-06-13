@@ -2,20 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"/>
 <title>form</title>
+<style>
+body {font-family: "Raleway", Arial, sans-serif;
+align-content: center;
+text-align: center;}
+.w3-row img {margin-bottom: -8px}
+</style>
 </head>
 	<body>
-		<h1>inserisci dati di un opera</h1>
+	<header class="w3-container w3-xlarge w3-padding-24">
+
+  </header>
+
+		<h1> Inserisci dati di un opera</h1>
 		
-		<form action="#" th:action="@{/processaOpera}" th:object="${opera}" method="post">
-			<p>Titolo: <input type="text" th:field="*{titolo}" /></p>
-        	<p>Anno: <input type="text" th:field="*{anno}" /></p>
-			<p>Tecnica:<input type="text" th:field="*{tecnica}"/></p>
-			<p>Dimensione:<input type="text" th:field="*{dimensioni}"/></p>
+		<form class="w3-container w3-card-4 w3-padding-16 w3-white" action="#" th:action="@{/processaOpera}" th:object="${opera}" method="post" target="_blank">
+			<p> Titolo: <input  class ="w3-input" type="text" th:field="*{titolo}" /></p>
+        	<p> Anno: <input class="w3-input" type="text" th:field="*{anno}" /></p>
+			<p> Tecnica:<input class="w3-input" type="text" th:field="*{tecnica}"/></p>
+			<p> Dimensione:<input class="w3-input" type="text" th:field="*{dimensioni}"/></p>
 			
 			<input type="hidden" name="idAutore" th:value="${idAutore}"/>
-			<input type="submit" name="submit" value="invia"> </input>
-			 <input type="reset" value="Reset" ></input>
+			<input class="w3-button w3-right w3-theme" type="submit" name="submit" value="invia"/> 
+			 <input class="w3-button w3-right w3-theme" type="reset" value="Reset" ></input>
 		</form>
+		
+		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
+
 	</body>
 </html>

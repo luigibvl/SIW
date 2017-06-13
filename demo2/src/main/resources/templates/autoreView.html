@@ -1,21 +1,40 @@
 <!DOCTYPE html >
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta  charset="UTF-8" />
+<meta  charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"/>
+<style>
+body {font-family: "Raleway", Arial, sans-serif;
+text-align: center;
+align-items: center;
+text-decoration-color: black}
+.w3-row img {margin-bottom: -8px}
+</style>
 <title>prima pagina</title>
 </head>
 	<body>
-		<h1> hai inserito</h1>
-		Nome <span th:text="${autore.nome}"></span><br/>
-		Cognome <span th:text="${autore.cognome}"></span><br/>
-		Nazionalità: <span th:text="${autore.nazionalita}"></span><br/>
-		
+	<div class="w3-container w3-card-4 w3-padding-16 w3-center w3-white" id="contact"></div>
+  <div class="w3-row">
+    <div class="w3-col m53">
+    <h1> Hai inserito</h1>
+
+		Nome: <div class="w3-text w3-center w3-theme" th:text="${autore.nome}"></div>
+		Cognome: <div class="w3-text w3-center w3-theme" th:text="${autore.cognome}"></div>
+		Nazionalità: <div class="w3-text w3-center w3-theme" th:text="${autore.nazionalita}"></div>
+		<br></br>
 		
 		<form action="#" th:action="@{/tornaApaginaInizialeAmministratore}"  method="post">
 			
-			<input type="submit" name="submit" value="torna a pagina iniziale"> </input>
+			<input class ="w3-button w3-center w3-theme" type="submit" name="submit" value="Torna alla pagina iniziale"/> 
 			 
 		</form>
+ 
+    </div>
+    </div>
 		
+		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
+
 	</body>
 </html>

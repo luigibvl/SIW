@@ -2,16 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"/>
+<style>
+body {font-family: "Raleway", Arial, sans-serif;
+align-items: center;
+text-align: center;}
+.w3-row img {margin-bottom: -8px}
+</style>
 <title>lista opere</title>
 </head>
-	<body>
-
-		<div th:each="opera, IterStat : ${opere}" >
+	<body >
+<div class="w3-container w3-card-4 w3-padding-16 w3-center w3-white" id="contact"></div>
+  <div class="w3-row"></div>
+    <div class="w3-col m53"></div>
+  <!-- Header -->
+  <header class="w3-container w3-xlarge w3-padding-24"></header>
+	<p>Opere Inserite</p>
+		<div class="w3-text" th:each="opera, IterStat : ${opere}" >
 		
-		<td>	<span th:text="${opera.titolo}"></span><br/> </td>
-		 <td>   <span th:text="${opera.anno}"></span><br/></td>
-		 <td>   <span th:text="${opera.tecnica}"></span><br/></td>
-		  <td>   <span th:text="${opera.dimensioni}"></span><br/></td>
+		<td>	<span class=" w3-center w3-theme" th:text="${opera.titolo}"></span><br/> </td>
+		 <td>   <span class=" w3-center w3-theme" th:text="${opera.anno}"></span><br/></td>
+		 <td>   <span class=" w3-center w3-theme" th:text="${opera.tecnica}"></span><br/></td>
+		  <td>   <span class=" w3-center w3-theme" th:text="${opera.dimensioni}"></span><br/></td>
 		 
 		 
 		
@@ -20,10 +35,11 @@
 		 <form action="#" th:action="@{/eliminaOpera}" method="post">
 			<input type="hidden" name="idOpera" th:value="${opera.id}"/>
 			<input type="hidden" name="idAutore" th:value="${opera.autore.id}"/>
-			<input type="submit" name="submit" value="elimina"> </input>
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Elimina"/> 
 			
 		</form>
-		
+		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
+
 		
 		 
 		 
