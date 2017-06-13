@@ -16,7 +16,9 @@ public class Users {
 	
 	
 	
-	
+	public Users(){
+		
+	}
 
 	public String getPassword() {
 		return password;

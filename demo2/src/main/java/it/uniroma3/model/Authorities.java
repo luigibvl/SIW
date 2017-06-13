@@ -15,6 +15,9 @@ public class Authorities {
 	private String authority;
 	
 	
+	public Authorities(){
+		
+	}
 	
 	
 	public Long getId() {

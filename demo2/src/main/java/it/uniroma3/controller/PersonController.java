@@ -43,11 +43,8 @@ public class PersonController {
 	@RequestMapping("/save")
 	public String process(){
 
-		Person p=new Person();
-		p.setFirstName("Pier");
-		p.setLastName("De Santi");
-		p.setAge(23);
-
+		Person p=new Person("Pier","DeSanti",23);
+		
 		this.personService.addPerson(p);
 
 		return "Done";
@@ -224,10 +221,8 @@ public class PersonController {
 
 	@RequestMapping("/person")
 	public String person(Model model){
-		Person p=new Person();
-		p.setFirstName("Pier");
-		p.setLastName("De Santi");
-		p.setAge(23);
+		Person p=new Person("Pier","De Santi",23);
+		
 		model.addAttribute("person", p);
 
 

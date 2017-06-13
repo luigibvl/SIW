@@ -25,6 +25,11 @@ public class Person implements Serializable{
 	public Person(){
 		
 	}
+	public Person(String nome,String cognome,int eta){
+		this.firstName=nome;
+		this.lastName=cognome;
+		this.age=eta;
+	}
 	
 	
 	public String getFirstName() {

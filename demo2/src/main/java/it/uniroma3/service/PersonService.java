@@ -40,7 +40,7 @@ public class PersonService {
 	public void addPerson(Person p){
 		
 		
-		repositoryPerson.save(p);
+		this.repositoryPerson.save(p);
 		
 		
 	}
@@ -60,7 +60,7 @@ public class PersonService {
 
 	public void addAutore(Autore a) {
 		// TODO Auto-generated method stub
-		repositoryAutore.save(a);
+		this.repositoryAutore.save(a);
 	}
 	
 	public List<Autore> findAllAutors(){
