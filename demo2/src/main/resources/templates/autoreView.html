@@ -18,16 +18,16 @@ text-decoration-color: black}
 	<div class="w3-container w3-card-4 w3-padding-16 w3-center w3-white" id="contact"></div>
   <div class="w3-row">
     <div class="w3-col m53">
-    <h1> Hai inserito</h1>
+    <h1> Dati autore Hai inserito</h1>
 
 		Nome: <div class="w3-text w3-center w3-theme" th:text="${autore.nome}"></div>
 		Cognome: <div class="w3-text w3-center w3-theme" th:text="${autore.cognome}"></div>
 		Nazionalità: <div class="w3-text w3-center w3-theme" th:text="${autore.nazionalita}"></div>
 		<br></br>
 		
-		<form action="#" th:action="@{/tornaApaginaInizialeAmministratore}"  method="post">
+		<form action="#" th:action="@{/admin}"  method="post">
 			
-			<input class ="w3-button w3-center w3-theme" type="submit" name="submit" value="Torna alla pagina iniziale"/> 
+			<input class ="w3-button w3-center w3-theme" type="submit" name="submit" value="Torna alla pagina dell'Amministratore"/> 
 			 
 		</form>
  
@@ -35,6 +35,10 @@ text-decoration-color: black}
     </div>
 		
 		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
-
+<form action="#" th:action="@{/welcome}" method="post">
+			
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Torna alla pagina Iniziale"/>
+			
+		</form>
 	</body>
 </html>

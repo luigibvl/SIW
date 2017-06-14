@@ -95,9 +95,9 @@ public class PersonController {
 	}
 
 
-	@RequestMapping(value="tornaApaginaInizialeAmministratore",method=RequestMethod.POST)
-	public String tornaApaginaInizialeAmministratore(){
-		return "paginaInizialeAmministratore";
+	@RequestMapping(value="admin",method=RequestMethod.POST)
+	public String admin(){
+		return "admin";
 	}
 
 	@RequestMapping(value="inserimentoOpera",method=RequestMethod.GET)
@@ -174,20 +174,18 @@ public class PersonController {
 	}
 
 
-	@ResponseBody
+	//@ResponseBody
 	@RequestMapping(value="processaUsers",method=RequestMethod.POST)
 	public String processaUsers(@ModelAttribute Users u,Model model){
 
+		u.setEnabled(true);
+		Authorities auto=new Authorities(u.getUsername(),"user");
+		u.setAuth(auto);
+		this.personService.addAuthorities(auto);
 		this.personService.addUsers(u);
 
 
-		Authorities auto=new Authorities();
-		auto.setUsername(u.getUsername());
-		auto.setAuthority("utente_registrato");
-		this.personService.addAuthorities(auto);
-
-
-		return "utente registrato!";
+		return "registrato";
 	}
 
 
@@ -229,25 +227,10 @@ public class PersonController {
 		return "personview";
 	}
 
-	// pagina iniziale ----------------------	
-	//	@RequestMapping("/")
-	//	String entry(){
-	//		return "paginaInizialeAmministratore";
-	//	}
-
-	//---------------------------------------------
-
-
-
-	@RequestMapping("/NewFile")
-	public String stampa1(){
-		return "NewFile";
-	}
 	@RequestMapping(value="mappa",method=RequestMethod.GET)
 	public String stampa3(ModelMap map){
 		map.put("a","sopra la panca");
 		map.put("b", 123);
-
 		return "mappa";
 	}
 

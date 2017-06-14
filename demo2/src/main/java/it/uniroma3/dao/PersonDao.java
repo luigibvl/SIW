@@ -10,25 +10,19 @@ public class PersonDao {
 	
 	
 	public Person find(){
-		Person p=new Person();
-		p.setFirstName("name1");
-		p.setLastName("lastName1");
-		p.setAge(30);
+		Person p=new Person("name2","last2",33);
+		
 		return p;
 	}
 	
 	
 	public List<Person> findAll(){
 		List<Person> persons=new ArrayList<>();
-		Person p=new Person();
-		p.setFirstName("name0");
-		p.setLastName("lastName0");
-		p.setAge(30);
+		Person p=new Person("name","last",30);
 		
-		Person p1=new Person();
-		p1.setFirstName("name11");
-		p1.setLastName("lastName11");
-		p1.setAge(30);
+		
+		Person p1=new Person("name1","last2",32);
+	
 		persons.add(p);
 		persons.add(p1);
 		

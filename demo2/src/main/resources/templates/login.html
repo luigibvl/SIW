@@ -1,11 +1,11 @@
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:tiles="http://www.thymeleaf.org">
+	xmlns:tiles="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <title>Pagina Di Log in</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link href="cosmo.css" rel="stylesheet" type="text/css"></link>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"></link>
 <style>
@@ -54,7 +54,11 @@ text-align: center;}
 	</div>
 	</div>
 		
-		
+		<form action="#" th:action="@{/}" method="post">
+			
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Torna alla pagina Iniziale"/>
+			
+		</form>
 		
 	
 </body>

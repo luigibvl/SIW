@@ -59,7 +59,6 @@ public class PersonService {
 	}
 
 	public void addAutore(Autore a) {
-		// TODO Auto-generated method stub
 		this.repositoryAutore.save(a);
 	}
 	
@@ -75,40 +74,33 @@ public class PersonService {
 	}
 
 	public Autore getAutore(Long id) {
-		// TODO Auto-generated method stub
 		
 		return this.repositoryAutore.findOne(id);
 	}
 
 	public void cancellaAutore(Autore a) {
-		// TODO Auto-generated method stub
 		this.repositoryAutore.delete(a);
 	}
 
 	public void addOpera(Opera o) {
-		// TODO Auto-generated method stub
 		this.repositoryOpera.save(o);
 		
 	}
 
 	public List<Opera> getOpereAutore(Long id) {
-		// TODO Auto-generated method stub
 		return this.getAutore(id).getOpere();
 		
 	}
 
 	public Opera getOpera(Long id) {
-		// TODO Auto-generated method stub
 		return this.repositoryOpera.findOne(id);
 	}
 
 	public void cancellaOpera(Opera opera) {
-		// TODO Auto-generated method stub
 		this.repositoryOpera.delete(opera);
 	}
 
 	public void addUsers(Users u) {
-		// TODO Auto-generated method stub
 		
 		this.repositoryUsers.save(u);
 		
@@ -117,7 +109,6 @@ public class PersonService {
 
 
 	public void addAuthorities(Authorities auto) {
-		// TODO Auto-generated method stub
 		this.repositoryAuthority.save(auto);
 	}
 

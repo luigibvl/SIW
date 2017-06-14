@@ -30,6 +30,7 @@ text-decoration: blink;}
 		<td>	<span class=" w3-center w3-theme" th:text="${autore.nome}"></span><br/> </td>
 		 <td>   <span class=" w3-center w3-theme" th:text="${autore.cognome}"></span><br/></td>
 		 <td>   <span class="w3-center w3-theme" th:text="${autore.nazionalita}"></span><br/></td>
+		 <br></br>
 		 
 		 
 		
@@ -39,16 +40,13 @@ text-decoration: blink;}
 			
 		</form>
 		
-	
-		
-		
 
 		 <form action="#" th:action="@{/eliminaAutore}" method="post">
 			<input type="hidden" name="idAutore" th:value="${autore.id}"/>
 			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="elimina"/>
 			
 		</form>
-		
+		<br></br>
 		 <form action="#" th:action="@{/listaOpereAutore}" method="post">
 			<input type="hidden" name="idAutore" th:value="${autore.id}"/>
 			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="listaOpere"/> 
@@ -56,11 +54,16 @@ text-decoration: blink;}
 		</form>
 	
 		 
-		 
+		 <br></br>
 		
 		</div>
+		<form action="#" th:action="@{/welcome}" method="post">
+			
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Torna alla pagina Iniziale"/>
+			
+		</form>
 		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
 
-	
+
 	</body>
 </html>

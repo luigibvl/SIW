@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Authorities {
@@ -14,12 +16,16 @@ public class Authorities {
 	private String username;
 	private String authority;
 	
-	
 	public Authorities(){
 		
 	}
 	
+	public Authorities(String nome, String string) {
+		this.username=nome;
+		this.authority=string;
+	}
 	
+
 	public Long getId() {
 		return id;
 	}
