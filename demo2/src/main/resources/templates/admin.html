@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"></link>
+<title> Pagina Amministratore </title>
+<style>
+body {font-family: "Raleway", Arial, sans-serif;
+text-align: center;
+}
+.w3-row img {margin-bottom: -8px}
+</style>
+</head>
+	<body>
+<div class="w3-container w3-card-4 w3-padding-16 w3-center w3-white" id="contact"></div>
+  <div class="w3-row"></div>
+    <div class="w3-col m53"></div>
+  <!-- Header -->
+  <header class="w3-container w3-xlarge w3-padding-24">
+      </header>
+		<h1>Scegli operazione</h1>
+		
+		
+		
+		<form action="#" class="w3-container w3-card-4 w3-padding-16 w3-white" th:action="@{/inserimentoAutore}" method="get">
+			
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="inserisci autore"></input> 
+			
+		</form>
+		
+		
+		<form action="#" class="w3-container w3-card-4 w3-padding-16 w3-white" th:action="@{/inserimentoOpera}" method="get">
+			
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="vai a lista autori"></input> 
+			
+		</form>
+		
+		
+		
+		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
+		<form action="#" th:action="@{/welcome}" method="post">
+			
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Torna alla pagina Iniziale"/>
+			
+		</form>
+		
+
+	</body>
+</html>
