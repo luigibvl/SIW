@@ -27,9 +27,7 @@ public class Autore {
     @OneToMany(mappedBy = "autore")
     private List<Opera> opere;
     
-    public Autore(){
-    	
-    }
+    public Autore(){ }
     
    
 	public List<Opera> getOpere() {

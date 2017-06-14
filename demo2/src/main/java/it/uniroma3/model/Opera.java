@@ -21,9 +21,7 @@ public class Opera {
 	
 	@ManyToOne
 	private Autore autore;
-	public Opera(){
-		
-	}
+	public Opera(){}
 	
 	public Long getId() {
 		return id;

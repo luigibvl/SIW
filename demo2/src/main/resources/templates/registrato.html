@@ -21,14 +21,10 @@ text-decoration-color: black}
      <h1 style="color:blue"> Complimenti, la registrazione è avvenuta correttamente</h1>
 
 		Nome: <div class="w3-text w3-center w3-theme" th:text="${users.username}"></div>
+		Cognome: <div class="w3-text w3-center w3-theme" th:text="${users.cognome}"></div>
+		Eta: <div class="w3-text w3-center w3-theme" th:text="${users.eta}"></div>
 		
 		<br></br>
-		
-		<form action="#" th:action="@{/admin}"  method="post">
-			
-			<input class ="w3-button w3-center w3-theme" type="submit" name="submit" value="Torna alla pagina dell'Amministratore"/> 
-			 
-		</form>
  
     </div>
     </div>

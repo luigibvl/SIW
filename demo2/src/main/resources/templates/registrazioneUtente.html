@@ -9,7 +9,10 @@
 		
 		<form action="#" th:action="@{/processaUsers}" th:object="${users}" method="post">
 			<p>Username: <input type="text" th:field="*{username}" /></p>
-        	<p>Password: <input type="text" th:field="*{password}" /></p>
+			
+        	<p>Cognome: <input type="text" th:field="*{cognome}" /></p>
+			<p>Eta: <input type="text" th:field="*{eta}" /></p>
+			<p>Password: <input type="text" th:field="*{password}" /></p>
 			
 			<input type="submit" name="submit" value="invia"></input>
 			 <input type="reset" value="Reset" ></input>

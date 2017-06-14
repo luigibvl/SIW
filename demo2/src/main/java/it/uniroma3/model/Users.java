@@ -20,21 +20,36 @@ public class Users {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String username;
+	private String cognome;
+	private int eta;
 	private String password;
 	private boolean enabled;
 	@OneToOne
 	private Authorities auth;
 	
-	public Users(){
-		
-	}
-	public Users(String username,String password,Authorities auth){
+	public Users(){}
+	
+	public Users(String username,String cognome,int eta,String password,Authorities auth){
 		this.username=username;
+		this.cognome=cognome;
+		this.eta=eta;
 		this.password=password;
 		this.enabled=true;
 		this.auth=auth;
 	}
 
+	public String getCognome() {
+		return cognome;
+	}
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+	public int getEta() {
+		return eta;
+	}
+	public void setEta(int eta) {
+		this.eta = eta;
+	}
 	public Authorities getAuth() {
 		return auth;
 	}

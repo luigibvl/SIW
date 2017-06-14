@@ -16,9 +16,7 @@ public class Authorities {
 	private String username;
 	private String authority;
 	
-	public Authorities(){
-		
-	}
+	public Authorities(){}
 	
 	public Authorities(String nome, String string) {
 		this.username=nome;
