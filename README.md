@@ -1,2 +1,0 @@
-# SIW
-progetto
