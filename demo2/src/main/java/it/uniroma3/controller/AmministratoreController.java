@@ -26,7 +26,7 @@ import it.uniroma3.model.Users;
 import it.uniroma3.service.AmministratoreService;
 
 @Controller
-
+// controller gestione amministratore
 public class AmministratoreController {
 
 	private final AmministratoreService amminstratoreSecvice;
