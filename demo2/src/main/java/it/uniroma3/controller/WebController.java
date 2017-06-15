@@ -2,7 +2,7 @@ package it.uniroma3.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-//commento
+
 @Controller
 public class WebController {
 	
@@ -22,7 +22,11 @@ public class WebController {
         return "login";
     }
    
-   
+    @RequestMapping(value={"/logout"})
+    public String logout(){
+        return "logout";
+    }
+    
     @RequestMapping(value="/403")
     public String Error403(){
         return "403";

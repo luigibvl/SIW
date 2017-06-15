@@ -26,26 +26,31 @@ text-align: center;
 		
 		<form action="#" class="w3-container w3-card-4 w3-padding-16 w3-white" th:action="@{/inserimentoAutore}" method="get">
 			
-			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="inserisci autore"></input> 
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Inserisci Artista"></input> 
 			
 		</form>
 		
 		
 		<form action="#" class="w3-container w3-card-4 w3-padding-16 w3-white" th:action="@{/inserimentoOpera}" method="get">
 			
-			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="vai a lista autori"></input> 
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Vai alla lista degli Artisti"></input> 
 			
 		</form>
 		
 		
 		
-		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
+		<footer class="w3-light-grey w3-padding-64 w3-center" id="about">
 		<form action="#" th:action="@{/welcome}" method="post">
 			
 			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Torna alla pagina Iniziale"/>
 			
 		</form>
-		
+		<form action="#" th:action="@{/logout}" method="post">
+			
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Logout"/>
+			
+		</form>
+		</footer>
 
 	</body>
 </html>
