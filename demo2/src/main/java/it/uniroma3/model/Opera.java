@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @NamedQuery(name= "findAllOperas",query="SELECT o FROM Opera o")
@@ -14,9 +16,18 @@ public class Opera {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@NotNull
+	@Size(min=1)
 	private String titolo;
 	private int anno;
+	
+	@NotNull
+	@Size(min=1)
 	private String tecnica;
+	
+	@NotNull
+	@Size(min=1)
 	private int dimensioni;
 	
 	@ManyToOne

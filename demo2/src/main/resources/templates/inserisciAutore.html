@@ -19,22 +19,34 @@ text-align: center;}
 
   </header>
 
-		<h1>Inserimento Dati</h1>
+		<h1>Inserimento Dati autore</h1>
 		
 		<form action="#" class="w3-container w3-card-4 w3-padding-16 w3-white" th:action="@{/processaAutore}" th:object="${autore}" method="post">
-			<div>
-			  	Nome:  
-				<span><input class ="w3-input" type="text" th:field="*{nome}" /> </span>
-				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Error</span>
 			
-			</div>
-        	<p>Cognome: <input class ="w3-input" type="text" th:field="*{cognome}" /></p>
-			<p>nazionalita:<input class ="w3-input" type="text" th:field="*{nazionalita}"/></p>
-			<p>Data Nascita:<input class ="w3-input" type="text" th:field="*{dataNascita}"/></p>
-			<p>Data Morte:<input class ="w3-input" type="text" th:field="*{dataMorte}"/></p>
+			  	    <label for="nome">Nome:</label>   
+				    <input class ="w3-input" type="text" id="nome" name="nome" th:value="${errNome}" /> 
+				   <span th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+			
+			 <label for="cognome">Cognome:</label>
+        	 <input class ="w3-input" type="text" id="cognome" name="cognome" th:value="${errCognome}" />
+        	 <span th:if="${#fields.hasErrors('cognome')}" th:text="#{label.mandatory}">Error</span>
+        	 
+        	<label for="nazionalita"> nazionalita:</label>
+			<input class ="w3-input" type="text" id="nazionalita" name="nazionalita" th:value="${errNazionalita}"/>
+			<span th:if="${#fields.hasErrors('nazionalita')}" th:text="#{label.mandatory}">Error</span>
+			
+			<label for="dataNascita">Data Nascita:</label>
+			<input class ="w3-input" type="text" id="dataNascita" name="dataNascita" th:value="${errDataNascita}"/>
+			<span th:if="${#fields.hasErrors('dataNascita')}" th:text="#{label.mandatory}">Error</span>
+			
+			<label for="dataMorte">Data Morte:</label>
+			<input class ="w3-input" type="text" id="dataMorte" name="dataMorte" th:value="${errDataMorte}"/>
+			<span th:if="${#fields.hasErrors('dataMorte')}" th:text="#{label.mandatory}">Error</span>
+			
 			<input type="submit" class="w3-button w3-right w3-theme" name="submit" value="invia"/>
 			 <input type="reset" class="w3-button w3-right w3-theme" value="Reset" ></input>
 		</form>
+		
   <div class="w3-row"></div>
     <div class="w3-col m53"></div>
     <form action="#" th:action="@{/admin}" method="post">
