@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @NamedQuery(name= "findAllAutors",query="SELECT a FROM Autore a")
@@ -17,11 +21,26 @@ public class Autore {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-    
+	
+	@NotNull
+	@Size(min=1)
 	private String nome;
+	
+	@NotNull
+	@Size(min=1)
     private String cognome;
+	
+	@NotNull
+	@Size(min=1)
     private String nazionalita;
+	
+	
+	@Temporal(TemporalType.DATE)
+	@NotNull
     private Date dataNascita;
+	
+	@Temporal(TemporalType.DATE)
+	@NotNull
     private Date dataMorte;
     
     @OneToMany(mappedBy = "autore")

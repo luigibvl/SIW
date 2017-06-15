@@ -1,6 +1,10 @@
 package it.uniroma3.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -59,6 +63,71 @@ public class AmministratoreController {
 		return "inserisciAutore";
 
 	}
+	
+	
+	
+	
+	
+//	@RequestMapping(value="processaAutore",method=RequestMethod.POST)
+//	public String processaAutore(@ModelAttribute Autore a,Model model){
+//		boolean tuttoOK=true;
+//		String nextPage;
+//		nextPage="autoreView";
+//
+//		if (a.getNome().equals("") || a.getNome()==null) {
+//			model.addAttribute("errNome","campo obbligatorio");
+//			tuttoOK=false;
+//		}
+//		if(a.getCognome().equals("") || a.getCognome()==null){
+//			model.addAttribute("errCognome","campo obbligatorio");
+//			tuttoOK=false;
+//		}
+//		if(a.getNazionalita().equals("") || a.getNazionalita()==null){
+//			model.addAttribute("errNazionalita","campo obbligatorio");
+//			tuttoOK=false;
+//		}
+//		
+//		
+//		
+//		try{
+//			Date d=a.getDataNascita();
+//			
+//		}
+//		catch(Exception e){
+//			model.addAttribute("errDataNascita","campo obbligatorio");
+//			tuttoOK=false;
+//		}
+//		
+////		if(a.getDataNascita().equals("") || a.getDataNascita()==null){
+////			model.addAttribute("errDataNascita","campo obbligatorio");
+////			tuttoOK=false;
+////		}
+////		
+////		if(a.getDataMorte().equals("") || a.getDataMorte()==null){
+////			model.addAttribute("errDataMorte","campo obbligatorio");
+////			tuttoOK=false;
+////		}
+//		if(tuttoOK==false){
+//			nextPage="inserisciAutore";
+//		}
+//		
+//		else {
+//
+//			this.amminstratoreSecvice.addAutore(a);
+//			model.addAttribute("autore",a);
+//			
+//			
+//		}
+//		return nextPage;
+//	}
+
+	
+	
+	
+	
+	
+	
+	
 
 	@RequestMapping(value="processaAutore",method=RequestMethod.POST)
 	public String processaAutore(@Valid @ModelAttribute Autore a,Model model,BindingResult bindingResult){
@@ -74,6 +143,8 @@ public class AmministratoreController {
 		}
 		return "autoreView";
 	}
+	
+	
 
 
 	@RequestMapping(value="admin",method=RequestMethod.POST)
