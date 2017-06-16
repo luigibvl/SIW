@@ -29,7 +29,6 @@ public class Amministratore implements Serializable {
 		this.age=eta;
 	}
 	
-	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -67,4 +66,5 @@ public class Amministratore implements Serializable {
 	public String toString(){
 		return this.getFirstName()+ " "+this.getLastName()+ " "+ this.getAge();
 	}
+	
 }

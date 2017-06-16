@@ -44,7 +44,6 @@ public class AmministratoreService {
 		this.repositoryAmministratore.save(p);
 	}
 	
-
 	public List<Amministratore> findALL(){
 		
 		List<Amministratore> list=new ArrayList<>();
@@ -73,12 +72,10 @@ public class AmministratoreService {
 
 	public void addOpera(Opera o) {
 		this.repositoryOpera.save(o);
-		
 	}
 
 	public List<Opera> getOpereAutore(Long id) {
 		return this.getAutore(id).getOpere();
-		
 	}
 
 	public Opera getOpera(Long id) {
