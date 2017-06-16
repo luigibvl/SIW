@@ -1,49 +1,62 @@
 <!DOCTYPE html >
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta  charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link href="https://fonts.googleapis.com/css?family=Raleway"
+	rel="stylesheet" type="text/css" />
 <style>
-body {font-family: "Raleway", Arial, sans-serif;
-text-align: center;
-align-items: center;
-text-decoration-color: black}
-.w3-row img {margin-bottom: -8px}
+body {
+	font-family: "Raleway", Arial, sans-serif;
+	text-align: center;
+	align-items: center;
+	text-decoration-color: black
+}
+
+.w3-row img {
+	margin-bottom: -8px
+}
 </style>
 <title>Dati Artista</title>
 </head>
-	<body>
-	<div class="w3-container w3-card-4 w3-padding-16 w3-center w3-white" id="contact"></div>
-  <div class="w3-row">
-    <div class="w3-col m53">
-    <h1>Hai inserito i seguenti dati sull'Artista</h1>
+<body>
+	<div class="w3-container w3-card-4 w3-padding-16 w3-center w3-white"
+		id="contact"></div>
+	<div class="w3-row">
+		<div class="w3-col m53">
+			<h1>Hai inserito i seguenti dati sull'Artista</h1>
 
-		Nome: <div class="w3-text w3-center w3-theme" th:text="${autore.nome}"></div>
-		Cognome: <div class="w3-text w3-center w3-theme" th:text="${autore.cognome}"></div>
-		Nazionalità: <div class="w3-text w3-center w3-theme" th:text="${autore.nazionalita}"></div>
-		<br></br>
-		
-		
- 
-    </div>
-    </div>
-		
-		<footer class="w3-light-grey w3-padding-64 w3-center" id="about">
-		
-		
-		
-		<form action="#" th:action="@{/admin}"  method="post">
-			
-			<input class ="w3-button w3-center w3-theme" type="submit" name="submit" value="Torna alla pagina dell'Amministratore"/> 
-			 
+			Nome:
+			<div class="w3-text w3-center w3-theme" th:text="${autore.nome}"></div>
+			Cognome:
+			<div class="w3-text w3-center w3-theme" th:text="${autore.cognome}"></div>
+			Nazionalità:
+			<div class="w3-text w3-center w3-theme"
+				th:text="${autore.nazionalita}"></div>
+			<br></br>
+
+
+
+		</div>
+	</div>
+
+	<footer class="w3-light-grey w3-padding-64 w3-center" id="about">
+
+
+
+		<form action="#" th:action="@{/admin}" method="post">
+
+			<input class="w3-button w3-center w3-theme" type="submit"
+				name="submit" value="Torna alla pagina dell'Amministratore" />
+
 		</form>
-			<form action="#" th:action="@{/welcome}" method="post">
-			
-			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Torna alla pagina Iniziale"/>
-			
+		<form action="#" th:action="@{/welcome}" method="post">
+
+			<input type="submit" class="w3-button w3-center w3-theme"
+				name="submit" value="Torna alla pagina Iniziale" />
+
 		</form>
-		</footer>
-	</body>
+	</footer>
+</body>
 </html>

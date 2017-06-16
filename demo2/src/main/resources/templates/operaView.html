@@ -1,44 +1,57 @@
 <!DOCTYPE html >
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta  charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link href="https://fonts.googleapis.com/css?family=Raleway"
+	rel="stylesheet" type="text/css" />
 <style>
-body {font-family: "Raleway", Arial, sans-serif;
-text-align: center;
-text-decoration: blink;}
-.w3-row img {margin-bottom: -8px}
+body {
+	font-family: "Raleway", Arial, sans-serif;
+	text-align: center;
+	text-decoration: blink;
+}
+
+.w3-row img {
+	margin-bottom: -8px
+}
 </style>
 <title>Dati inseriti</title>
 </head>
-	<body>
-	<div class="w3-content" style="max-width:1500px"></div>
-	<div class="w3-container w3-card-4 w3-padding-16 w3-center w3-white" id="contact"></div>
-  <div class="w3-row"></div>
-    <div class="w3-col m53"></div>
+<body>
+	<div class="w3-content" style="max-width: 1500px"></div>
+	<div class="w3-container w3-card-4 w3-padding-16 w3-center w3-white"
+		id="contact"></div>
+	<div class="w3-row"></div>
+	<div class="w3-col m53"></div>
 
-  <!-- Header -->
-  <header class="w3-container w3-xlarge w3-padding-24">
-   
-  </header>
-		<h1> Hai inserito:</h1>
-		Titolo: <span class="w3" th:text="${opera.titolo}"></span><br/>
-		Anno: <span th:text="${opera.anno}"></span><br/>
-		Tecnica: <span th:text="${opera.tecnica}"></span><br/>
-		
-		
-		<form action="#" th:action="@{/tornaApaginaInizialeAmministratore}"  method="post">
-			
-			<input class="w3-button w3-center w3-theme " type="submit" name="submit" value="Torna a pagina iniziale"/> 
-			 
-		</form>
-		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
-<form action="#" th:action="@{/welcome}" method="post">
-			
-			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Torna alla pagina Iniziale"/>
-			
-		</form>
-	</body>
+	<!-- Header -->
+	<header class="w3-container w3-xlarge w3-padding-24"> </header>
+	<h1>Hai inserito:</h1>
+	Titolo:
+	<span class="w3" th:text="${opera.titolo}"></span>
+	<br /> Anno:
+	<span th:text="${opera.anno}"></span>
+	<br /> Tecnica:
+	<span th:text="${opera.tecnica}"></span>
+	<br />
+	
+	<footer class="w3-light-grey w3-padding-64 w3-center" id="about">
+	<form action="#" th:action="@{/admin}"
+		method="post">
+
+		<input class="w3-button w3-center w3-theme " type="submit"
+			name="submit" value="Torna alla pagina dell'Amministratore" />
+
+	</form>
+	<form action="#" th:action="@{/welcome}" method="post">
+
+		<input type="submit" class="w3-button w3-center w3-theme"
+			name="submit" value="Torna alla pagina Iniziale" />
+
+	</form>
+	
+	</footer>
+</body>
 </html>

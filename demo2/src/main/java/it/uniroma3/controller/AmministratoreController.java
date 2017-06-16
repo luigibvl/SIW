@@ -1,17 +1,11 @@
 package it.uniroma3.controller;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -19,17 +13,14 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
+import it.uniroma3.model.Amministratore;
 import it.uniroma3.model.Authorities;
 import it.uniroma3.model.Autore;
 import it.uniroma3.model.Opera;
-import it.uniroma3.model.Amministratore;
 import it.uniroma3.model.Users;
 import it.uniroma3.service.AmministratoreService;
 
@@ -57,70 +48,17 @@ public class AmministratoreController {
 	}
 
 	@RequestMapping(value="inserimentoAutore",method=RequestMethod.GET)
-	public String inserisciAutore(Model model){
-		model.addAttribute(new Autore());
+	public String inserisciAutore(Model model,Autore a){
+		model.addAttribute(a);
 		return "inserisciAutore";
 	}
-	
-//	@RequestMapping(value="processaAutore",method=RequestMethod.POST)
-//	public String processaAutore(@ModelAttribute Autore a,Model model){
-//		boolean tuttoOK=true;
-//		String nextPage;
-//		nextPage="autoreView";
-//
-//		if (a.getNome().equals("") || a.getNome()==null) {
-//			model.addAttribute("errNome","campo obbligatorio");
-//			tuttoOK=false;
-//		}
-//		if(a.getCognome().equals("") || a.getCognome()==null){
-//			model.addAttribute("errCognome","campo obbligatorio");
-//			tuttoOK=false;
-//		}
-//		if(a.getNazionalita().equals("") || a.getNazionalita()==null){
-//			model.addAttribute("errNazionalita","campo obbligatorio");
-//			tuttoOK=false;
-//		}
-//		
-//		
-//		
-//		try{
-//			Date d=a.getDataNascita();
-//			
-//		}
-//		catch(Exception e){
-//			model.addAttribute("errDataNascita","campo obbligatorio");
-//			tuttoOK=false;
-//		}
-//		
-////		if(a.getDataNascita().equals("") || a.getDataNascita()==null){
-////			model.addAttribute("errDataNascita","campo obbligatorio");
-////			tuttoOK=false;
-////		}
-////		
-////		if(a.getDataMorte().equals("") || a.getDataMorte()==null){
-////			model.addAttribute("errDataMorte","campo obbligatorio");
-////			tuttoOK=false;
-////		}
-//		if(tuttoOK==false){
-//			nextPage="inserisciAutore";
-//		}
-//		
-//		else {
-//
-//			this.amminstratoreSecvice.addAutore(a);
-//			model.addAttribute("autore",a);
-//			
-//			
-//		}
-//		return nextPage;
-//	}
 
 	@RequestMapping(value="processaAutore",method=RequestMethod.POST)
-	public String processaAutore(@Valid @ModelAttribute Autore a,
-			Model model,BindingResult bindingResult){
+	public String processaAutore(@Valid @ModelAttribute Autore a,BindingResult result,
+			Model model){
 
-		if (bindingResult.hasErrors()) {
-			return "inserisciAutore";
+		if (result.hasErrors()) {
+			return inserisciAutore(model,a);
 		}
 		else {
 			this.amminstratoreSecvice.addAutore(a);
@@ -142,10 +80,10 @@ public class AmministratoreController {
 	}
 
 	@RequestMapping(value="inserimentoDiUnOpera",method=RequestMethod.POST)
-	public String inserimentoDiUnOpera(@RequestParam("idAutore") Long id,Model model){
+	public String inserimentoDiUnOpera(@RequestParam("idAutore") Long id,Model model,Opera opera){
 
-		model.addAttribute("idAutore", id);
-		model.addAttribute(new Opera());
+		model.addAttribute("idAutore",id);
+		model.addAttribute(opera);
 
 		return "inserisciOpera";
 	}
@@ -162,11 +100,18 @@ public class AmministratoreController {
 	}
 
 	@RequestMapping(value="processaOpera",method=RequestMethod.POST)
-	public String processaOpera(@ModelAttribute Opera o,@RequestParam("idAutore") Long id,Model model){
+	public String processaOpera(@Valid@ModelAttribute Opera o,BindingResult result,
+			@RequestParam("idAutore") Long id,Model model){
 		
-		o.setAutore(this.amminstratoreSecvice.getAutore(id));
-		this.amminstratoreSecvice.addOpera(o);
-		model.addAttribute("opera", o);
+		if (result.hasErrors()) {
+			return inserimentoDiUnOpera(id,model,o);
+		}
+		else {
+			o.setAutore(this.amminstratoreSecvice.getAutore(id));
+			this.amminstratoreSecvice.addOpera(o);
+			model.addAttribute("opera", o);
+		}
+		
 		return "operaView";
 	}
 
@@ -191,33 +136,42 @@ public class AmministratoreController {
 	}
 
 	@RequestMapping(value="registrazione",method=RequestMethod.POST)
-	public String registrazione(Model model){
+	public String registrazione(Model model,Users u){
 		
-		model.addAttribute(new Users());
+		model.addAttribute(u);
 		return "registrazioneUtente";
 	}
 
+	
 	@RequestMapping(value="processaUsers",method=RequestMethod.POST)
-	public String processaUsers(@ModelAttribute Users u,Model model){
+	public String processaUsers( @Valid @ModelAttribute Users u,
+			BindingResult bindingResult,Model model){
 		
-		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		if (bindingResult.hasErrors()) {
+			return registrazione(model,u);
+		}
 		
-		String hashedPassword = passwordEncoder.encode(u.getPassword());
-		Users user=new Users(u.getUsername(),u.getCognome(),u.getEta(),
-				hashedPassword,u.getAuth());
-		
-		Authorities auth=new Authorities(user.getUsername(),"admin");
-		user.setAuth(auth);
-		Amministratore admin=new Amministratore(user.getUsername(),
-				user.getCognome(),user.getEta());
-		
+		else {
 
-		this.amminstratoreSecvice.addAuthorities(auth);
-		this.amminstratoreSecvice.addUsers(user);
-		
-		//in questo caso sempre
-		if(auth.getAuthority().equals("admin"))
-			this.amminstratoreSecvice.addAmministratore(admin);
+			PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+			String hashedPassword = passwordEncoder.encode(u.getPassword());
+			Users user=new Users(u.getUsername(),u.getCognome(),u.getEta(),
+					hashedPassword,u.getAuth());
+
+			Authorities auth=new Authorities(user.getUsername(),"admin");
+			user.setAuth(auth);
+			Amministratore admin=new Amministratore(user.getUsername(),
+					user.getCognome(),user.getEta());
+
+
+			this.amminstratoreSecvice.addAuthorities(auth);
+			this.amminstratoreSecvice.addUsers(user);
+
+			//in questo caso sempre
+			if(auth.getAuthority().equals("admin"))
+				this.amminstratoreSecvice.addAmministratore(admin);
+		}
 
 		return "registrato";
 	}

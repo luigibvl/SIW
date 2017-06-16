@@ -1,11 +1,15 @@
 package it.uniroma3.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -20,18 +24,21 @@ public class Opera {
 	@NotNull
 	@Size(min=1)
 	private String titolo;
-	private int anno;
+	
+	@Temporal(TemporalType.DATE)
+	@NotNull
+	private Date anno;
 	
 	@NotNull
 	@Size(min=1)
 	private String tecnica;
 	
 	@NotNull
-	@Size(min=1)
-	private int dimensioni;
+	private Integer dimensioni;
 	
 	@ManyToOne
 	private Autore autore;
+	
 	public Opera(){}
 	
 	public Long getId() {
@@ -50,11 +57,11 @@ public class Opera {
 		this.titolo = titolo;
 	}
 	
-	public int getAnno() {
-		return anno;
+	public Date getAnno() {
+		return this.anno;
 	}
 	
-	public void setAnno(int anno) {
+	public void setAnno(Date anno) {
 		this.anno = anno;
 	}
 	
@@ -66,11 +73,11 @@ public class Opera {
 		this.tecnica = tecnica;
 	}
 	
-	public int getDimensioni() {
+	public Integer getDimensioni() {
 		return dimensioni;
 	}
 	
-	public void setDimensioni(int dimensioni) {
+	public void setDimensioni(Integer dimensioni) {
 		this.dimensioni = dimensioni;
 	}
 	
