@@ -23,7 +23,6 @@ public class Authorities {
 		this.authority=string;
 	}
 	
-
 	public Long getId() {
 		return id;
 	}
@@ -42,13 +41,5 @@ public class Authorities {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
