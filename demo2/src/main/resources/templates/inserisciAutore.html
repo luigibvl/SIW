@@ -2,67 +2,88 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link href="cosmo.css" rel="stylesheet" type="text/css"/>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="cosmo.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link href="https://fonts.googleapis.com/css?family=Raleway"
+	rel="stylesheet" type="text/css" />
 <style>
-body {font-family: "Raleway", Arial, sans-serif;
-text-align: center;}
-.w3-row img {margin-bottom: -8px}
+body {
+	font-family: "Raleway", Arial, sans-serif;
+	text-align: center;
+}
+
+.w3-row img {
+	margin-bottom: -8px
+}
 </style>
 <title>Inserisci i dati dell'Autore</title>
 
 </head>
-	<body>
-	<header class="w3-container w3-xlarge w3-padding-24">
+<body>
+	<header class="w3-container w3-xlarge w3-padding-24"> </header>
 
-  </header>
+	<h1>Inserimento Dati autore</h1>
 
-		<h1>Inserimento Dati autore</h1>
+	<form action="#" class="w3-container w3-card-4 w3-padding-16 w3-white"
+		th:action="@{/processaAutore}" th:object="${autore}" method="post">
+
+		<label for="nome">Nome:</label> <div></div><span
+			th:if="${#fields.hasErrors('nome')}" th:text="#{label.errore}">Error</span><input class="w3-input" type="text"
+			id="nome" name="nome" th:field="*{nome}" /> 
+
+		<label for="cognome">Cognome:</label> <div></div>
+		<span th:if="${#fields.hasErrors('cognome')}"
+			th:text="#{label.errore}" >Error</span><input class="w3-input"
+			type="text" id="cognome" name="cognome" th:field="*{cognome}" />
 		
-		<form action="#" class="w3-container w3-card-4 w3-padding-16 w3-white" th:action="@{/processaAutore}" th:object="${autore}" method="post">
+			<label for="nazionalita">
+			Nazionalita':</label><div></div>
+			 <span
+			th:if="${#fields.hasErrors('nazionalita')}"
+			th:text="#{label.errore}">Error</span> 
+			 <input class="w3-input" type="text" id="nazionalita"
+			name="nazionalita" th:field="*{nazionalita}" /> 
 			
-			  	    <label for="nome">Nome:</label>   
-				    <input class ="w3-input" type="text" id="nome" name="nome" th:value="${errNome}" /> 
-				   <span th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+			<label for="dataNascita">Data
+			Nascita:</label> <div></div>
+			<span
+			th:if="${#fields.hasErrors('dataNascita')}"
+			th:text="#{label.data}">Error</span> 
+			<input class="w3-input" type="text" id="dataNascita"
+			name="dataNascita" th:field="*{dataNascita}" />
 			
-			 <label for="cognome">Cognome:</label>
-        	 <input class ="w3-input" type="text" id="cognome" name="cognome" th:value="${errCognome}" />
-        	 <span th:if="${#fields.hasErrors('cognome')}" th:text="#{label.mandatory}">Error</span>
-        	 
-        	<label for="nazionalita"> nazionalita:</label>
-			<input class ="w3-input" type="text" id="nazionalita" name="nazionalita" th:value="${errNazionalita}"/>
-			<span th:if="${#fields.hasErrors('nazionalita')}" th:text="#{label.mandatory}">Error</span>
+			<label for="dataMorte">Data
+			Morte:</label><div> </div><span
+			th:if="${#fields.hasErrors('dataMorte')}"
+			th:text="#{label.data}">Error</span>  <input class="w3-input" type="text" id="dataMorte"
+			name="dataMorte" th:field="*{dataMorte}" />
 			
-			<label for="dataNascita">Data Nascita:</label>
-			<input class ="w3-input" type="text" id="dataNascita" name="dataNascita" th:value="${errDataNascita}"/>
-			<span th:if="${#fields.hasErrors('dataNascita')}" th:text="#{label.mandatory}">Error</span>
 			
-			<label for="dataMorte">Data Morte:</label>
-			<input class ="w3-input" type="text" id="dataMorte" name="dataMorte" th:value="${errDataMorte}"/>
-			<span th:if="${#fields.hasErrors('dataMorte')}" th:text="#{label.mandatory}">Error</span>
 			
-			<input type="submit" class="w3-button w3-right w3-theme" name="submit" value="invia"/>
-			 <input type="reset" class="w3-button w3-right w3-theme" value="Reset" ></input>
-		</form>
-		
-  <div class="w3-row"></div>
-    <div class="w3-col m53"></div>
-    <form action="#" th:action="@{/admin}" method="post">
-			
-			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Torna indietro"/>
-			
-		</form>
-    
-    
-    <form action="#" th:action="@{/welcome}" method="post">
-			
-			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Torna alla pagina Iniziale"/>
-			
-		</form>
-		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
+			<input type="submit"
+			class="w3-button w3-right w3-theme" name="submit" value="invia" /> <input
+			type="reset" class="w3-button w3-right w3-theme" value="Reset"></input>
+	</form>
+
+	<div class="w3-row"></div>
+	<div class="w3-col m53"></div>
+	<form action="#" th:action="@{/admin}" method="post">
+
+		<input type="submit" class="w3-button w3-center w3-theme"
+			name="submit" value="Torna indietro" />
+
+	</form>
 
 
-	</body>
+	<form action="#" th:action="@{/welcome}" method="post">
+
+		<input type="submit" class="w3-button w3-center w3-theme"
+			name="submit" value="Torna alla pagina Iniziale" />
+
+	</form>
+	<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
+
+
+</body>
 </html>
