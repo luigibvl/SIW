@@ -152,7 +152,7 @@ public class AmministratoreController {
 		}
 		
 		else {
-
+			
 			PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 			String hashedPassword = passwordEncoder.encode(u.getPassword());

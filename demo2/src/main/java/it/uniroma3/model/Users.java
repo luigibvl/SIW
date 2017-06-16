@@ -24,7 +24,7 @@ public class Users {
 	@Size(min=1)
 	private String cognome;
 	@NotNull
-	private int eta;
+	private Integer eta;
 	@NotNull
 	@Size(min=4)
 	private String password;
@@ -34,7 +34,7 @@ public class Users {
 	
 	public Users(){}
 	
-	public Users(String username,String cognome,int eta,String password,Authorities auth){
+	public Users(String username,String cognome,Integer eta,String password,Authorities auth){
 		this.username=username;
 		this.cognome=cognome;
 		this.eta=eta;
@@ -51,11 +51,11 @@ public class Users {
 		this.cognome = cognome;
 	}
 	
-	public int getEta() {
+	public Integer getEta() {
 		return eta;
 	}
 	
-	public void setEta(int eta) {
+	public void setEta(Integer eta) {
 		this.eta = eta;
 	}
 	
