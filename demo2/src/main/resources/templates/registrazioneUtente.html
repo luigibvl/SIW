@@ -1,26 +1,79 @@
+
 <!DOCTYPE html >
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Registrazione</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link href="cosmo.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"/>
+<style>
+body {font-family: "Raleway", Arial, sans-serif;
+text-align: center;}
+a:hover, a:focus, a:active {
+	color: red;
+	}
+.w3-row img {margin-bottom: -8px}
+
+
+</style>
+<script type="text/javascript"  >
+function change(html){
+description.innerHTML=html;
+
+}
+</script>
+<title>Inserisci i dati Utente</title>
+
 </head>
 	<body>
-		<h1>inserisci dati</h1>
+	<header class="w3-container w3-xlarge w3-padding-24">
+  </header>
+
+		<h1>Inserisci i tuoi dati</h1>
 		
-		<form action="#" th:action="@{/processaUsers}" th:object="${users}" method="post">
-			<p>Username: <input type="text" th:field="*{username}" /></p>
+		<form action="#" class="w3-container w3-card-4 w3-padding-16 w3-white" 
+		th:action="@{/processaUsers}" th:object="${users}" method="post">
 			
-        	<p>Cognome: <input type="text" th:field="*{cognome}" /></p>
-			<p>Eta: <input type="text" th:field="*{eta}" /></p>
-			<p>Password: <input type="text" th:field="*{password}" /></p>
+			 <label for="username"> Nome, like as your username:</label>   
+		
+			 <input class ="w3-input" type="text" id="nome" name="nome" th:value="${errUsername}" /> 
+			 <span th:if="${#fields.hasErrors('username')}" th:text="#{label.mandatory}">Error</span>
 			
-			<input type="submit" name="submit" value="invia"></input>
-			 <input type="reset" value="Reset" ></input>
+			 <label for="cognome">Cognome:</label>
+        	 <input class ="w3-input" type="text" id="cognome" name="cognome" th:value="${errCognome}" />
+        	 <span th:if="${#fields.hasErrors('cognome')}" th:text="#{label.mandatory}">Error</span>
+        	 
+        	<label for="eta">Età:</label>
+			<input class ="w3-input" type="text" id="eta" name="eta" th:value="${errEta}"/>
+			<span th:if="${#fields.hasErrors('eta')}" th:text="#{label.mandatory}">Error</span>
+			
+			<label for="password"><a 
+			onmouseover= "javascript:change('Dont worry by BCrypt');" 
+					onmouseout="javascript:change('')"> Password:</a></label>	
+			<span id="description">&nbsp; 
+			</span>
+		
+		
+			<input class ="w3-input" type="password" id="password" name="password" th:value="${errPassword}" 
+			onmouseover= "javascript:change('Dont worry by BCrypt'); this.style.color='red'"  
+					onmouseout="javascript:change('')"/> 
+			
+			<span th:if="${#fields.hasErrors('password')}" th:text="#{label.mandatory}">Error</span>
+			
+			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Invia"/>
+			 <input type="reset" class="w3-button w3-right w3-theme" value="Reset" ></input>
 		</form>
-		<form action="#" th:action="@{/welcome}" method="post">
+		
+  <div class="w3-row"></div>
+    <div class="w3-col m53"></div>
+   
+		<footer class="w3-light-grey w3-padding-64 w3-center" id="about"><form action="#" th:action="@{/welcome}" method="post">
 			
 			<input type="submit" class="w3-button w3-center w3-theme" name="submit" value="Torna alla pagina Iniziale"/>
 			
-		</form>
+		</form></footer>
+
+
 	</body>
 </html>
