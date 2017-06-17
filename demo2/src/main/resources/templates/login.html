@@ -2,6 +2,12 @@
 	xmlns:tiles="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+<script type="text/javascript">
+function change(html){
+description.innerHTML=html;
+
+}
+</script>
 <title>Pagina Di Log in</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -14,6 +20,9 @@ body {
 	font-family: "Raleway", Arial, sans-serif;
 	text-align: center;
 	
+}
+a:hover, a:focus, a:active {
+	color:red;
 }
 h1{color:blue}
 c{color:red}
@@ -35,23 +44,27 @@ c{color:red}
 				th:action="@{/login}" method="post">
 				<fieldset>
 					<legend>PAGINA DI LOGIN</legend>
-					<div  th:if="${param.error}" class="alert alert-error"  ><c><em>Invalid
+					<div  th:if="${param.error}" class="alert alert-error"  >
+					<c><em>Invalid
 						username and password</em></c></div>
-					<div th:if="${param.logout}" class="alert alert-success">You
-						have been logged out.</div>
 					<p></p>
 					<div>
-						<label for="username">Username</label> 
+						<label for="username" >Username</label> 
 				
 						<input class="w3-input"
-							type="text" id="username" name="username" />
+							type="text" placeholder="Your Username" id="username" name="username" />
 							
 							
 							
 					</div>
 					<div>
-						<label for="password"> Password</label> <input class="w3-input"
-							type="password" id="password" name="password" />
+						<label for="password" ><a
+			onmouseover="javascript:change('Dont worry... by BCrypt!');"
+			onmouseout="javascript:change('')">  Password </a></label><span
+			id="description">&nbsp; </span> <input class="w3-input"
+							type="password"  placeholder="Your Password" id="password" name="password" 
+							onmouseover="javascript:change('Dont worry... by BCrypt!'); this.style.color='red'"
+			onmouseout="javascript:change('')"/>
 					</div>
 					<div class="form-actions">
 						<br></br>

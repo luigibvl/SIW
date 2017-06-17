@@ -46,16 +46,16 @@ description.innerHTML=html;
 		<div></div>
 		<span th:if="${#fields.hasErrors('username')}"
 			th:text="#{label.errore}">Error</span> <input class="w3-input"
-			type="text" th:field="*{username}" /> <label>Cognome:</label>
+			type="text" th:field="*{username}" placeholder="Your FirstName"/> <label>Cognome:</label>
 		<div></div>
 		<label> <span th:if="${#fields.hasErrors('cognome')}"
 			th:text="#{label.errore}">Error</span>
-		</label> <input class="w3-input" type="text" id="cognome" name="cognome"
+		</label> <input class="w3-input" type="text" id="cognome" name="cognome" placeholder="Your LastName"
 			th:field="*{cognome}" /> <label for="{eta}">Eta':</label>
 		<div></div>
 		<label> <span th:if="${#fields.hasErrors('eta')}"
 			th:text="#{label.number}">Error</span>
-		</label> <input class="w3-input" type="number" placeholder="23" id="eta" name="eta"
+		</label> <input class="w3-input" type="number" placeholder="Your Age" id="eta" name="eta"
 			th:field="*{eta}" />
 			 <label for="password"><a
 			onmouseover="javascript:change('Dont worry... by BCrypt!');"
@@ -65,10 +65,14 @@ description.innerHTML=html;
 		<label> <span th:if="${#fields.hasErrors('password')}"
 			th:text="#{label.errore}">Error</span>
 		</label> <input class="w3-input" type="password" id="password" name="password"
-			th:value="${errPassword}"
+			th:value="${errPassword}" placeholder="Your Password"
 			onmouseover="javascript:change('Dont worry... by BCrypt!'); this.style.color='red'"
-			onmouseout="javascript:change('')" /> <input type="submit"
-			class="w3-button w3-center w3-theme" name="submit" value="Invia" /> <input
+			onmouseout="javascript:change('')" /> 
+			
+			<input type="submit"
+			class="w3-button w3-middle w3-theme" name="submit" value="Invia" /> 
+			<div></div>
+			<input
 			type="reset" class="w3-button w3-right w3-theme" value="Reset"></input>
 	</form>
 

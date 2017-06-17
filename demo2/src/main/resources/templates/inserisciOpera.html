@@ -22,7 +22,7 @@ body {
 <body>
 	<header class="w3-container w3-xlarge w3-padding-24"> </header>
 
-	<h1>Inserisci i dati di un opera</h1>
+	<h1>Inserisci i dati di un Opera</h1>
 
 	<form class="w3-container w3-card-4 w3-padding-16 w3-white" action="#"
 		th:action="@{/processaOpera}" th:object="${opera}" method="post"
@@ -41,15 +41,15 @@ body {
 			th:if="${#fields.hasErrors('tecnica')}" th:text="#{label.errore}">Error</span><input class="w3-input" type="text" th:field="*{tecnica}" />
 		</p>
 		<p>
-			Dimensioni: ( in cm quadrati )<div></div><span
+			Dimensioni: in cm quadrati <div></div><span
 			th:if="${#fields.hasErrors('dimensioni')}" th:text="#{label.number}">Error</span><input class="w3-input" type="text"
 				th:field="*{dimensioni}" />
 		</p>
 
 		<input type="hidden" name="idAutore" th:value="${idAutore}" /> <input
-			class="w3-button w3-right w3-theme" type="submit" name="submit"
-			value="invia" /> <input class="w3-button w3-right w3-theme"
-			type="reset" value="Reset"></input>
+			class="w3-button w3-center w3-theme" type="submit" name="submit"
+			value="Invia" /> <div></div><input class="w3-button w3-right w3-theme"
+			type="Reset" value="Reset"></input>
 	</form>
 
 

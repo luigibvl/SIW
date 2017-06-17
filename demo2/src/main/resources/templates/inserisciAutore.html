@@ -17,13 +17,13 @@ body {
 	margin-bottom: -8px
 }
 </style>
-<title>Inserisci i dati dell'Autore</title>
+<title>Inserisci i dati dell'Artista</title>
 
 </head>
 <body>
 	<header class="w3-container w3-xlarge w3-padding-24"> </header>
 
-	<h1>Inserimento Dati autore</h1>
+	<h1>Inserisci i dati dell'Artista</h1>
 
 	<form action="#" class="w3-container w3-card-4 w3-padding-16 w3-white"
 		th:action="@{/processaAutore}" th:object="${autore}" method="post">
@@ -62,12 +62,13 @@ body {
 			
 			
 			<input type="submit"
-			class="w3-button w3-right w3-theme" name="submit" value="invia" /> <input
+			class="w3-button w3-center w3-theme" name="submit" value="Invia" /> 
+			
+			<div></div><input
 			type="reset" class="w3-button w3-right w3-theme" value="Reset"></input>
 	</form>
-
-	<div class="w3-row"></div>
-	<div class="w3-col m53"></div>
+<footer class="w3-light-grey w3-padding-64 w3-center" >
+	
 	<form action="#" th:action="@{/admin}" method="post">
 
 		<input type="submit" class="w3-button w3-center w3-theme"
@@ -82,7 +83,7 @@ body {
 			name="submit" value="Torna alla pagina Iniziale" />
 
 	</form>
-	<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
+</footer>
 
 
 </body>
