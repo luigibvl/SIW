@@ -29,7 +29,7 @@ body {
 	<div class="w3-col m53"></div>
 	<!-- Header -->
 	<header class="w3-container w3-xlarge w3-padding-24"> </header>
-	<h1>Lista degli autori</h1>
+	<h1>Lista degli Artisti</h1>
 	<div th:each="autore, IterStat : ${autori}">
 
 		<span class=" w3-center w3-theme" th:text="${autore.nome}"></span><br />
@@ -42,7 +42,7 @@ body {
 		<form action="#" th:action="@{/inserimentoDiUnOpera}" method="post">
 			<input type="hidden" name="idAutore" th:value="${autore.id}" /> <input
 				type="submit" class="w3-button w3-center w3-theme" name="submit"
-				value="aggiungi opera" />
+				value="Aggiungi Opera" />
 
 		</form>
 
@@ -50,14 +50,14 @@ body {
 		<form action="#" th:action="@{/eliminaAutore}" method="post">
 			<input type="hidden" name="idAutore" th:value="${autore.id}" /> <input
 				type="submit" class="w3-button w3-center w3-theme" name="submit"
-				value="elimina" />
+				value="Elimina Autore" />
 
 		</form>
-		<br></br>
+		
 		<form action="#" th:action="@{/listaOpereAutore}" method="post">
 			<input type="hidden" name="idAutore" th:value="${autore.id}" /> <input
 				type="submit" class="w3-button w3-center w3-theme" name="submit"
-				value="listaOpere" />
+				value="Lista delle Opere" />
 
 		</form>
 
@@ -84,7 +84,7 @@ body {
 
 		</form>
 	</footer>
-
+<footer class="w3-light-grey w3-padding-64 w3-center" id="about"></footer>
 
 </body>
 </html>

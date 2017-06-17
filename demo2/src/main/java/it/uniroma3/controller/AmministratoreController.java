@@ -92,9 +92,15 @@ public class AmministratoreController {
 	public String eliminaAutore(@RequestParam("idAutore") Long id,Model model){
 
 		Autore a=this.amminstratoreSecvice.getAutore(id);
+		List<Opera> opere=new ArrayList<>();
+		opere=this.amminstratoreSecvice.getOpereAutore(id);
+		
+		for(Opera opera:opere)
+			this.amminstratoreSecvice.cancellaOpera(opera);
+		
 		this.amminstratoreSecvice.cancellaAutore(a);
-
 		model.addAttribute("autori",this.amminstratoreSecvice.findAllAutors());
+		
 		return "listaAutori";
 
 	}
