@@ -3,56 +3,81 @@
 
 <title>Benvenuto</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+    <meta http-equiv="X-UA-Compatible" content="Safari" ></meta>
+
 <link href="https://fonts.googleapis.com/css?family=Raleway"
 	rel="stylesheet" type="text/css"></link>
+    <link href="/css/stylish-portfolio.css" rel="stylesheet"></link>
+
+     <!-- Bootstrap Core CSS -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet"></link>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
+        <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"></link>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+	<link href="/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'></link>
+    <link href="/css/stylish-portfolio.css" rel="stylesheet"></link>
+
+   
 <style>
 body {
 	font-family: "Raleway", Arial, sans-serif;
 	text-align: center;
 }
 
+
 .w3-row img {
 	margin-bottom: -8px
 }
 </style>
-<body>
-	<h1 style="color: blue">Art Gallery SIW</h1>
-	<!-- !PAGE CONTENT! -->
-	<div class="w3-content" style="max-width: 1500px">
 
-		<!-- Header -->
-		<header class="w3-container w3-xlarge w3-padding-24">
-			<a href="#about" class="w3-right w3-button w3-white"> Contattami</a>
-		</header>
-		<!-- Photo Grid -->
-		<div class="w3-row">
-			<div class="w3-half">
-				<img
-					src="https://ae01.alicdn.com/kf/HTB1DQJwKXXXXXbYXFXXq6xXFXXX2/printed-Masters-font-b-Starry-b-font-font-b-Night-b-font-Vincent-font-b-Van.jpg"
-					style="width:100%"
-					></img> <img
-					src="http://www.t-mag.it/wp-content/uploads/2013/03/leonid_afremov.jpg"
-					style="width:100%"></img> <img
-					src="http://www.campaniailoveyou.com/images/immagini/mare/3242368762_2da0a1aaea.jpg"
-					style="width:101%"></img>
-			</div>
-			<div class="w3-half">
-				<img
-					src="http://www.pitturiamo.com/it/immagine/quadro-moderno/tramonto-sul-mare-viola-40x30cm-89094.jpg"
-					style="width:101%"></img> <img
-					src="https://previews.123rf.com/images/max5799/max57991504/max5799150400101/38222988-Pittura-a-olio-su-tela-di-una-belle-case-vicino-al-mare-disegno-astratto-Archivio-Fotografico.jpg"
-					style="width:100%"></img> <img
-					src="https://www.culliganbrescia.com/wp-content/uploads/2016/06/venere-botticelli-2-800x548.jpg"
-					style="width:105%"></img>
-			</div>
-		</div>
-		<!-- End Page Content -->
-	</div>
+  <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" >Art Gallery</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="galleria.html">Vai alla Galleria</a>
+                    </li>
+            
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+<header class="intro-header" style="background-image: url('https://ae01.alicdn.com/kf/HTB1DQJwKXXXXXbYXFXXq6xXFXXX2/printed-Masters-font-b-Starry-b-font-font-b-Night-b-font-Vincent-font-b-Van.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1 style="color:yellow">Art Gallery</h1>
+                        <hr class="small"></hr>
+                        <span class="subheading" style="color:yellow">Una delle piu' belle gallerie di Roma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
 	<!-- Footer / About Section -->
 	<footer class="w3-light-grey w3-padding-64 w3-center" id="about">
-		<p> Nuovo Amministratore? Effettua la registrazione ed accedi alla galleria </p>
 		<form action="#" th:action="@{/login}" method="get">
 
 			<input type="submit" class="w3-button w3-center w3-theme"
@@ -60,6 +85,8 @@ body {
 
 		</form>
 		<br></br>
+				<p> Nuovo Amministratore? Effettua la registrazione ed accedi alla galleria </p>
+		
 		<form action="#" th:action="@{/registrazione}" method="get">
 
 			<input type="submit" class="w3-button w3-center w3-theme"
@@ -67,26 +94,47 @@ body {
 
 		</form>
 		<!--  <h2>Contattami</h2>-->
-
 		<br></br>
-		<p class="w3-large w3-text-pink">Non esitare a contattarmi!</p>
-
-		<form method="post"
-			action="mailto:luigibvl@gmail.com,pierdyds@gmail.com"
-			enctype="text/plain">
-			Oggetto del messaggio:<br/> <input name="subject" type="text"
-				class="w3-input-padding-64"></input> <br> Testo:</br>
-			<textarea name="body" class="w3-input-padding-32"></textarea>
-			<br /> <input type="submit" class="w3-button w3-center w3-theme"
-				value="Ivia Email"></input>
-		</form>
+		
 
 		<img
 			src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc0L-56M8HrK5WKo7eEW8I4XUcgO2x8ageEb8X_PEcViJ76Q5H"
 			class="w3-image w3-padding-32" width="300" height="300"></img>
+ <!-- Team Members Row -->
 
+ <div class="container">
+        <div class="row">
+
+            <div class="row-lg-22">
+                <h2 class="page-header">Our Team</h2>
+            </div>
+            <div class="row-lg-8 col-sm-4 text-center"></div>
+
+              <div class="col-lg-2 col-sm-2 text-center">
+                <img class="img-circle img-centre img-responsive"
+                 src="/IMG_20151227_224618 5.jpg" />
+                <h3>Luigi Bevilacqua	
+                	<div></div>
+                    <small>Software engineering student at Roma Tre University</small>
+                </h3>
+                <p>Follow me on <a href="https://github.com/luigibvl">GitHub</a>!</p>
+                          <div><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:luigibvl@gmail.com">luigibvl@gmail.com</a></div>
+             
+             </div>
+            <div class="col-lg-2 col-sm-2 text-center">
+                <img class="img-circle img-center img-responsive"
+                 src="/10624958_10203617080141876_2713461274091155638_n.jpg" />
+                <h3>Pietro Davide De Santi
+                <div></div>
+                    <small>Software engineering student at Roma Tre University</small>
+                </h3>
+                <p>Follow me on <i class="fa fa-envelope-o fa-fw"></i><a href="https://github.com/PietroDavideDeSanti">GitHub</a>!</p>
+                <div><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:pierdyds@gmail.com">pierdyds@gmail.com</a></div>
+                
+            </div>
+		
+           </div>
+        </div>
 	</footer>
-	<p>made by: Pietro Davide De Santi , Luigi Bevilacqua </p>
-
-</body>
+	
 </html>

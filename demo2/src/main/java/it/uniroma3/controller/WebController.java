@@ -38,4 +38,9 @@ public class WebController {
       return "login";
     }
     
+    @RequestMapping(value="/galleria")
+    public String gallery(){
+        return "galleria";
+    }
+    
 }
